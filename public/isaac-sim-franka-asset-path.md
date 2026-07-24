@@ -1,13 +1,13 @@
 ---
 title: Isaac Sim 6.0 + Isaac Lab 3.0 でロボットアームの強化学習を回すまで — アセットパス404の罠と解決
 tags:
-  - IsaacSim
   - IsaacLab
+  - IsaacSim
   - NVIDIA
-  - Ubuntu
   - Robotics
+  - Ubuntu
 private: false
-updated_at: '2026-07-24T21:38:58+09:00'
+updated_at: '2026-07-24T22:10:14+09:00'
 id: 648222f82d13cfdb5e93
 organization_url_name: null
 slide: false
@@ -185,7 +185,7 @@ grep -n "^from" franka.py
 
 ![Isaac Lab 3.0 上で並列実行されるFranka環境。X11セッション + --viz kit によりGUI表示に成功した状態](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/0bd1235f-a65a-48ca-b1c6-280895929cad.png)
 
-![Screenshot from 2026-07-22 01-05-47.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/263d1a92-834c-40a7-acb6-84231ecab0a6.png)
+![Isaac Lab 3.0 上で並列実行される ANYmal-C Flat（四足歩行）の学習環境](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/263d1a92-834c-40a7-acb6-84231ecab0a6.png)
 
 ---
 
@@ -214,7 +214,7 @@ grep -n "^from" franka.py
   --task Isaac-Velocity-Flat-Anymal-C-Play-v0 --num_envs 32 \
   --headless --video --video_length 300
 ```
-![Screenshot from 2026-07-20 15-07-54.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/43ca7a94-2144-4124-8b81-b4b9607e7cd2.png)
+![学習中に出力された動画（rl-video-step-0.mp4）の再生例](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/43ca7a94-2144-4124-8b81-b4b9607e7cd2.png)
 
 オフスクリーンレンダリングでmp4が生成されます。Wayland/X11を問わず動作し、成果物の記録に便利です。
 
