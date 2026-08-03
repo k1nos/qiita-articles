@@ -8,8 +8,8 @@ tags:
   - ROS2
   - Robotics
   - Ubuntu
-private: true
-updated_at: '2026-08-03T23:46:48+09:00'
+private: false
+updated_at: '2026-08-04T00:13:53+09:00'
 id: 0d52b0126e8f8388aaf6
 organization_url_name: null
 slide: false
@@ -178,6 +178,8 @@ Warning: Possible version incompatibility. Attempting to load omni::fabric::ISta
 
 前2つは Isaac Sim 起動時の定番警告、3つ目はサンプルアセットのカメラ設定が新しい命名に変わったことによるものです。最後に `app ready` まで到達していれば問題ありません。
 
+![Isaac Sim 起動ログ。rclpy loaded と ROS 2 ブリッジ拡張の startup が確認できる](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/3e553ddd-a2dd-4852-8348-7cd6098b6ddd.png)
+
 ---
 
 # 3. Isaac Sim → ROS 2 ― センサーデータを受け取る
@@ -203,6 +205,8 @@ Window > Examples > Robotics Examples
 - `Nova_Carter_ROS_1` / `_2` / `_3` … 3台のロボット
 
 Stage に `ROS_Clock` という OmniGraph が最初から入っていることが、「配線済みで届く」ことの証拠です。
+
+![Office Scene をロードした状態。Stage ツリーに ROS_Clock と Nova_Carter_ROS_1〜3 が並ぶ](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/e7f05459-efd2-4bfa-a1e3-2e83f8fe5b63.png)
 
 ## 再生してトピックを確認する
 
@@ -322,6 +326,8 @@ publishing #34: geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=0.3, 
 publishing #35: ...
 ```
 
+![cmd_vel への連続 publish（linear x=0.3, angular z=0.2）](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/0ab5ebce-821e-4966-a346-b3c8337e9861.png)
+
 ## `cmd_vel` が効かない…と思ったときの切り分け
 
 ここで多くの人が「指令を送っているのにロボットが動かない」と戸惑います。私もそうでした。落ち着いて切り分けましょう。
@@ -422,6 +428,8 @@ ros2 topic pub /carter1/cmd_vel geometry_msgs/msg/Twist \
 ```
 
 これで **ROS 2 → Isaac Sim の制御経路も通り、双方向通信が実証**できました。
+
+![その場旋回の指令を連続 publish（linear x=0.0, angular z=1.0）](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/d8bf4846-da3b-401a-8b0d-cc6c3be46140.png)
 
 > 💡 **補足：指令を送ったロボットだけが動く**
 > `/carter1/cmd_vel` に送れば carter1 だけが動きます。他の2台は誰も指令を送っていないので静止したままです。3台とも動かすには、それぞれの名前空間の `cmd_vel` に送ります。
