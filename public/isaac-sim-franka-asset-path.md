@@ -7,7 +7,7 @@ tags:
   - Robotics
   - Ubuntu
 private: false
-updated_at: '2026-07-24T22:10:14+09:00'
+updated_at: '2026-08-04T00:15:51+09:00'
 id: 648222f82d13cfdb5e93
 organization_url_name: null
 slide: false
@@ -270,3 +270,9 @@ PyTorch:     2.10.0+cu128
 - IOMMU無効化: GRUB に `intel_iommu=off`（未対応だと画像破損・不安定の警告）
 - GCC/G++ 11（Ubuntu 24.04標準の13は非対応）
 - CPU governor を `performance` に（再起動で `powersave` に戻るため都度確認）
+
+---
+
+## 続編
+
+- [Isaac Sim 6.0 と ROS 2 Jazzy を接続してシミュレーション内のロボットを双方向制御する](https://qiita.com/k1nos/items/0d52b0126e8f8388aaf6)
