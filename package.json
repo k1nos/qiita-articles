@@ -1,0 +1,23 @@
+{
+  "name": "qiita-articles",
+  "version": "1.0.0",
+  "description": "Qiita記事の管理用リポジトリ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k1nos/qiita-articles.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/k1nos/qiita-articles/issues"
+  },
+  "homepage": "https://github.com/k1nos/qiita-articles#readme",
+  "devDependencies": {
+    "@qiita/qiita-cli": "^1.10.0"
+  }
+}

@@ -6,8 +6,8 @@ tags:
   - GPU
   - PyTorch
   - Ubuntu
-private: true
-updated_at: '2026-08-18T22:56:43+09:00'
+private: false
+updated_at: '2026-08-18T23:12:17+09:00'
 id: dec1bd95d63b75ff3f09
 organization_url_name: null
 slide: false
@@ -260,6 +260,9 @@ elapsed: 16.32s
 | Core i5-12400 | 16.32秒 | - |
 
 **約18.5倍の差**が出ました。
+
+![GPU実行とCPU実行の比較](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/12db4749-98fd-40b0-a79d-af951774614c.png)
+※ユーザー名をマスキング済
 
 ## 気づいたこと
 
