@@ -7,7 +7,7 @@ tags:
   - Ubuntu
   - HPC
 private: false
-updated_at: '2026-09-02T07:22:46+09:00'
+updated_at: '2026-09-02T07:55:41+09:00'
 id: 1df4df903481a25fc65b
 organization_url_name: null
 slide: false
@@ -278,8 +278,8 @@ sbatch gpu_job.sh
 sbatch gpu_job.sh
 squeue
 ```
+![slurm-squeue-trimmed.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/9ebae6de-4f4c-4d2d-b18a-d2a1cc862154.png)
 
-<!-- TODO: squeueのスクリーンショットを挿入 -->
 
 ```
 JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
@@ -305,6 +305,9 @@ NVIDIA GeForce RTX 4070, 1061 MiB
 === Job 5 start: 18:45:47 ===
 NVIDIA GeForce RTX 4070, 1154 MiB
 ```
+
+![squeue_pending_frosted_20260901.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/24db6f74-dfce-4f19-953c-222ecbe53d32.png)
+
 
 **時刻に注目してください。**
 
