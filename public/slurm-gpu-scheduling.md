@@ -7,7 +7,7 @@ tags:
   - Ubuntu
   - HPC
 private: false
-updated_at: '2026-09-02T07:55:41+09:00'
+updated_at: '2026-09-02T08:17:03+09:00'
 id: 1df4df903481a25fc65b
 organization_url_name: null
 slide: false
@@ -278,7 +278,8 @@ sbatch gpu_job.sh
 sbatch gpu_job.sh
 squeue
 ```
-![slurm-squeue-trimmed.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/9ebae6de-4f4c-4d2d-b18a-d2a1cc862154.png)
+![ジョブ4が実行中(R)、ジョブ5が待機中(PD)のsqueue出力](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/9ebae6de-4f4c-4d2d-b18a-d2a1cc862154.png)
+※ユーザー名をマスキング済
 
 
 ```
@@ -306,7 +307,8 @@ NVIDIA GeForce RTX 4070, 1061 MiB
 NVIDIA GeForce RTX 4070, 1154 MiB
 ```
 
-![squeue_pending_frosted_20260901.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/24db6f74-dfce-4f19-953c-222ecbe53d32.png)
+![3ジョブ投入時のsqueue出力と、直列実行された結果ログ](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/24db6f74-dfce-4f19-953c-222ecbe53d32.png)
+※ユーザー名をマスキング済
 
 
 **時刻に注目してください。**
