@@ -6,7 +6,7 @@ tags:
   - GPU
   - NVIDIA
   - SLURM
-private: true
+private: false
 updated_at: '2026-09-23T17:24:37+09:00'
 id: 08a5ee6aa1a57de5c9c5
 organization_url_name: null
@@ -216,6 +216,8 @@ No resources found in nvidia-device-plugin namespace.
 
 **Podが1つも起動していません。**
 
+![Helmは成功と表示されるが、Podが1つも起動せずDaemonSetもDESIRED 0のまま](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/4dbbdf8e-1684-46e2-b116-7c16f2577619.png)
+
 ## 原因究明
 
 まず DaemonSet の状態を見ます。
@@ -259,6 +261,8 @@ affinity:
           values:
           - "true"
 ```
+
+![DaemonSetのnodeAffinity。3つのmatchExpressionsのいずれかに合致するノードを探している](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/9849fed1-09b8-4979-ba53-154002ddfad2.png)
 
 **原因が判明しました。** DaemonSet は次の3つのラベルの**いずれか**を持つノードを探しています。
 
@@ -310,6 +314,8 @@ nvdp-nvidia-device-plugin-z7mjh   0/1     ContainerCreating   0          0s
 ```
 
 Podがスケジュールされました。
+
+![ラベル付与後、DESIREDが1に変わりPodがRunningになった](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/d5a4858a-b1c2-4f08-8b12-906afc781638.png)
 
 ---
 
@@ -506,6 +512,8 @@ Events:
 ```
 
 **`0/1 nodes are available: 1 Insufficient nvidia.com/gpu`**。この表現が Kubernetes の発想をよく表しています。「順番待ちしている」ではなく、**「配置できるノードが0個」**という言い方をします。さらに `No preemption victims found`（追い出せるPodも無い）とまで報告してくれます。
+
+![GPU1枚に2つのPodを要求すると、2つ目がPendingになりInsufficient nvidia.com/gpuと報告される](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/c4a624ae-0634-42fc-95eb-53b33ff459e3.png)
 
 結果は似ていますが、モデルが違います。
 
