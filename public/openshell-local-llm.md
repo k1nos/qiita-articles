@@ -7,7 +7,7 @@ tags:
   - LLM
   - Ubuntu
 private: true
-updated_at: '2026-10-16T01:40:48+09:00'
+updated_at: '2026-10-16T02:17:41+09:00'
 id: f35139cb8c94e86c4a72
 organization_url_name: null
 slide: false
@@ -349,6 +349,9 @@ NET:OPEN [MED] DENIED /usr/bin/curl(0) -> api.github.com:443 [reason:transparent
 NET:OPEN [MED] DENIED /usr/bin/bash(0) -> host.openshell.internal:11434 [reason:transparent_tcp_policy_denied]
 ```
 
+![左: サンドボックス内で3つのテストを実行 / 右: ログをリアルタイム表示。curl→Ollama は ALLOWED、curl→api.github.com と bash→Ollama は DENIED](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/5caff230-62c5-4ed1-bbb0-37d6c0e39a62.png)
+*左でテストを実行すると、右のログに許可（ALLOWED）と遮断（DENIED）が流れる。SSH:OPEN は sandbox exec 自身の接続*
+
 provider から生成されたルールが、効いているポリシーに合成されています。
 
 ```yaml
@@ -461,6 +464,10 @@ CONFIG:LOADED [INFO] Policy reloaded successfully [policy_hash:689f4f46ab67...]
 ```
 
 承認から反映まで約7.5秒でした。
+
+![承認前は 000、提案を表示して rule approve を実行すると、約10秒後の再試行で 200 が返る](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4472357/cdeb5785-baad-4856-8fa5-7f7701f3c02a.png)
+*承認前は 000（遮断）→ 提案を確認 → 承認 → 200（許可）。サンドボックスは止めていない*
+
 
 ---
 
