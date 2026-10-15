@@ -6,8 +6,8 @@ tags:
   - ollama
   - LLM
   - Ubuntu
-private: true
-updated_at: '2026-10-16T02:17:41+09:00'
+private: false
+updated_at: '2026-10-16T08:43:53+09:00'
 id: f35139cb8c94e86c4a72
 organization_url_name: null
 slide: false
