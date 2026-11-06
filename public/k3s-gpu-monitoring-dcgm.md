@@ -8,8 +8,8 @@ tags:
   - kubernetes
   - prometheus
   - grafana
-private: true
-updated_at: '2026-11-04T01:54:04+09:00'
+private: false
+updated_at: '2026-11-07T08:36:24+09:00'
 id: 28cb4ea95a179f5dadcf
 organization_url_name: null
 slide: false
@@ -37,26 +37,23 @@ agreed_posting_campaign_term: false
 
 ```mermaid
 flowchart LR
-  subgraph node["ubuntu-host（k3s シングルノード / RTX 4070）"]
+  subgraph node["ubuntu-host（k3s シングルノード）"]
     direction LR
-    gpu[("RTX 4070")]
-    dp["NVIDIA device plugin<br/>（前回記事）"]
-    dcgm["dcgm-exporter<br/>DaemonSet / :9400"]
-    job["GPU を使う Pod<br/>（ベンチマーク Job）"]
+    job["k8s の Pod<br/>（device plugin が<br/>GPU を割り当て）"]
     slurm["Slurm ジョブ<br/>（k8s の外）"]
-    subgraph mon["namespace: monitoring（kube-prometheus-stack）"]
+    gpu[("RTX 4070")]
+    subgraph mon["namespace: monitoring"]
+      dcgm["dcgm-exporter<br/>:9400<br/>使用中の Pod 名を<br/>kubelet から取得"]
       prom["Prometheus"]
       graf["Grafana"]
       am["Alertmanager"]
     end
-    dp -- "nvidia.com/gpu を割り当て" --> job
     job --> gpu
     slurm --> gpu
-    dcgm -- "DCGM でメトリクスを取得" --> gpu
-    dcgm -. "kubelet pod-resources で<br/>どの Pod の GPU か調べる" .-> job
-    prom -- "ServiceMonitor で 15 秒ごとに収集" --> dcgm
-    graf --> prom
-    prom --> am
+    gpu -- "DCGM で取得" --> dcgm
+    dcgm -- "15秒ごとに収集<br/>（ServiceMonitor）" --> prom
+    prom -- 表示 --> graf
+    prom -- 通知 --> am
   end
 ```
 
