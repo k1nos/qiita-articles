@@ -1,7 +1,5 @@
 ---
-title: >-
-  自宅k3sのRTX 4070をDCGM
-  Exporter＋Prometheus＋Grafanaで監視する：GeForceで取れるメトリクス・取れないメトリクスと、電力上限で性能/Wが32%上がった話
+title: 自宅k3sのRTX 4070をDCGM Exporter＋Prometheus＋Grafanaで監視する
 tags:
   - NVIDIA
   - GPU
@@ -9,7 +7,7 @@ tags:
   - prometheus
   - grafana
 private: false
-updated_at: '2026-11-07T08:36:24+09:00'
+updated_at: '2026-11-07T08:50:10+09:00'
 id: 28cb4ea95a179f5dadcf
 organization_url_name: null
 slide: false
