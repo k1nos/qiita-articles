@@ -7,7 +7,7 @@ tags:
   - prometheus
   - grafana
 private: false
-updated_at: '2026-11-07T08:50:10+09:00'
+updated_at: '2026-11-07T09:20:27+09:00'
 id: 28cb4ea95a179f5dadcf
 organization_url_name: null
 slide: false
